@@ -67,8 +67,10 @@ world/loop_checks = 0
 			#ifdef GC_FINDREF
 			LocateReferences(A)
 			#endif
+			#ifdef GC_DEBUG
 			// Something's still referring to the qdel'd object.  Kill it.
 			testing("GC: -- '[log_info_line(A)]' was unable to be GC'd and was deleted --")
+			#endif
 			logging["[A.type]"]++
 			del(A)
 
